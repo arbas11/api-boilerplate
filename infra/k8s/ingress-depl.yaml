@@ -9,7 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   rules:
-    - host: markindo.dev
+    - host: local.dev
       http:
         paths:
           - path: /api/.*
