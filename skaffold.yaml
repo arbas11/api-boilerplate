@@ -1,0 +1,16 @@
+# ganti smua yang your-api jadi nama file api yang di buat dan manifest arahin ke file yaml deplnya
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: your-api
+build:
+  artifacts:
+    - image: arbaskoro/your-api
+      context: your-api
+      docker:
+        dockerfile: Dockerfile
+   
+manifests:
+  rawYaml:
+    - infra/k8s/your-api-depl.yaml
+

@@ -1,0 +1,38 @@
+# ganti smua yang your-api jadi nama file api yang di buat dan manifest arahin ke file yaml deplnya
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: your-api-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: your-api
+  template:
+    metadata:
+      labels:
+        app: your-api
+    spec:
+      containers:
+        - name: your-api
+          image: arbaskoro/your-api:latest
+          ports:
+          - containerPort: 3000
+          env:
+            - name: PORT_SERVER
+              value: "3000"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: your-api-srv
+spec:
+  selector:
+    app: your-api
+  type: ClusterIP
+  ports:
+    - name: your-api
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
