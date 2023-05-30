@@ -30,7 +30,7 @@ metadata:
 spec:
   selector:
     app: your-api
-  type: ClusterIP
+  type: NodePort
   ports:
     - name: your-api
       protocol: TCP
